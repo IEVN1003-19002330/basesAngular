@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {IProducto} from '../producto'
 
 @Component({
   selector: 'app-product-list',
@@ -18,7 +19,7 @@ export class ProductListComponent {
   }
 
 
-  productos:any[] = [
+  productos:IProducto [] = [
     {
 
       "producto":1,
