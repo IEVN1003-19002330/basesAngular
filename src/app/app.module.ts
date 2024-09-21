@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductComponent } from './product/product/product.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductoFilterPipe } from './product/producto-filter.pipe';
 import { OperasBasComponent } from './formularios/operas-bas/operas-bas.component';
+import { Ejemplo1Component } from './formularios/ejemplo1/ejemplo1.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +16,14 @@ import { OperasBasComponent } from './formularios/operas-bas/operas-bas.componen
     ProductComponent,
     ProductListComponent,
     ProductoFilterPipe,
-    OperasBasComponent
+    OperasBasComponent,
+    Ejemplo1Component
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
