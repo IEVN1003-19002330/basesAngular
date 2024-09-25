@@ -1,0 +1,42 @@
+<div class="container mt-5 col-12 col-md-6 col-lg-5"> 
+    <div class="boletos-cine-container card text-white bg-info">
+      <h2 class="text-center">Comprar entradas Cinepolis</h2>
+  
+      <form [formGroup]="boletosForm" (ngSubmit)="obtenerTotal()">
+        <div class="px-4 form-group">
+          <label class="form-label mt-4" for="nombre">Ingresa tu nombre:</label>
+          <input class="form-control" [(ngModel)]="nombre" formControlName="nombre" type="text" id="nombre"/>
+        </div>
+        
+        <div class="px-4 form-group">
+          <label class="form-label mt-4" for="numEntradas">Número de Entradas:</label>
+          <!-- El valor máximo será calculado dinámicamente en el componente -->
+          <input class="form-control" formControlName="numEntradas" type="number" id="numEntradas" [max]="maxEntradas" />
+        </div>
+  
+        <div class="px-4 form-group">
+          <label class="form-label mt-4" for="numPersonas">Número de Compradores:</label>
+          <input class="form-control" formControlName="numPersonas" type="number" id="numPersonas" min="1" max="7" (input)="actualizarMaxEntradas()" />
+        </div>
+        
+        <hr>
+        
+        <div class="px-3 form-group">
+          <label for="tarjetaSocioCineco">¿Tienes Tarjeta Socio Cineco?</label>
+          <input class="form-check-input" formControlName="tarjetaSocioCineco" type="checkbox" id="tarjetaSocioCineco" />
+        </div>
+        
+        <hr>
+  
+        <div class="mx-auto row justify-content-center">
+          <button class="btn btn-light" type="submit" [disabled]="boletosForm.invalid">Calcular</button>
+        </div>
+      </form>
+  
+      <div *ngIf="montoTotal">
+        <p>Nombre del comprador: {{nombre}}</p>
+        <p>Total a pagar: {{ montoTotal | currency:'USD':true }}</p>
+        <p>Número de entradas: {{ numEntradas }}</p>
+      </div>
+    </div>
+  </div>
